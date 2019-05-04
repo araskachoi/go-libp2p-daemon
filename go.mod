@@ -7,7 +7,7 @@ require (
 	github.com/ipfs/go-log v0.0.1
 	github.com/libp2p/go-libp2p v0.0.22
 	github.com/libp2p/go-libp2p-autonat-svc v0.0.5
-	github.com/libp2p/go-libp2p-circuit v0.0.6-0.20190504203127-6e59e668e160
+	github.com/libp2p/go-libp2p-circuit v0.0.6-0.20190504212603-c40c267d9e6a
 	github.com/libp2p/go-libp2p-connmgr v0.0.1
 	github.com/libp2p/go-libp2p-crypto v0.0.2
 	github.com/libp2p/go-libp2p-host v0.0.1
