@@ -333,7 +333,7 @@ func main() {
 	}
 
 	// XXX live hop limit
-	circuit.HopStreamLimit = 1 << 19
+	relay.HopStreamLimit = 1 << 19
 
 	// start daemon
 	d, err := p2pd.NewDaemon(context.Background(), c.ListenAddr, c.DHT.Mode, opts...)
