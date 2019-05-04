@@ -23,6 +23,8 @@ import (
 	multiaddr "github.com/multiformats/go-multiaddr"
 	promhttp "github.com/prometheus/client_golang/prometheus/promhttp"
 
+	mplex "github.com/whyrusleeping/go-smux-multiplex"
+
 	_ "net/http/pprof"
 )
 
@@ -96,6 +98,9 @@ func main() {
 		"available in the range [6060-7800], or on the user-provided port via -pprofPort")
 	pprofPort := flag.Uint("pprofPort", 0, "Binds the HTTP pprof handler to a specific port; "+
 		"has no effect unless the pprof option is enabled")
+
+	// XXX mplex only
+	mplexOnly := flag.Bool("mplex", false, "use only mplex as the muxer")
 
 	flag.Parse()
 
@@ -320,6 +325,11 @@ func main() {
 
 	if c.NoListen {
 		opts = append(opts, libp2p.NoListenAddrs)
+	}
+
+	// XXX mplex only
+	if *mplexOnly {
+		opts = append(opts, libp2p.Muxer("/mplex/6.7.0", mplex.DefaultTransport))
 	}
 
 	// start daemon
