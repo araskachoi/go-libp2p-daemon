@@ -332,6 +332,9 @@ func main() {
 		opts = append(opts, libp2p.Muxer("/mplex/6.7.0", mplex.DefaultTransport))
 	}
 
+	// XXX live hop limit
+	circuit.HopStreamLimit = 1 << 19
+
 	// start daemon
 	d, err := p2pd.NewDaemon(context.Background(), c.ListenAddr, c.DHT.Mode, opts...)
 	if err != nil {
