@@ -11,12 +11,14 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 
 	libp2p "github.com/libp2p/go-libp2p"
 	relay "github.com/libp2p/go-libp2p-circuit"
 	connmgr "github.com/libp2p/go-libp2p-connmgr"
 	p2pd "github.com/libp2p/go-libp2p-daemon"
 	config "github.com/libp2p/go-libp2p-daemon/config"
+	inet "github.com/libp2p/go-libp2p-net"
 	ps "github.com/libp2p/go-libp2p-pubsub"
 	quic "github.com/libp2p/go-libp2p-quic-transport"
 	identify "github.com/libp2p/go-libp2p/p2p/protocol/identify"
@@ -58,6 +60,11 @@ func pprofHTTP(port int) {
 			return
 		}
 	}
+}
+
+func init() {
+	// Set this to something much more reasonable than the default 1 minute linger time
+	inet.EOFTimeout = 5 * time.Second
 }
 
 func main() {
