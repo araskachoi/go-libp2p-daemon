@@ -65,6 +65,8 @@ func pprofHTTP(port int) {
 func init() {
 	// Set this to something much more reasonable than the default 1 minute linger time
 	inet.EOFTimeout = 5 * time.Second
+	// 1M goroutines for relay
+	relay.HopStreamLimit = 1 << 19
 }
 
 func main() {
