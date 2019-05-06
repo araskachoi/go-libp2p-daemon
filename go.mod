@@ -24,8 +24,7 @@ require (
 	github.com/multiformats/go-multihash v0.0.1
 	github.com/prometheus/client_golang v0.9.3-0.20190127221311-3c4408c8b829
 	github.com/stretchr/testify v1.3.0
-	github.com/vyzo/go-mplex v0.0.0-20190506084127-53d5bb35e24a // indirect
 	github.com/whyrusleeping/go-smux-multiplex v3.0.16+incompatible
 )
 
-replace github.com/libp2p/go-mplex => github.com/vyzo/go-mplex v0.0.0-20190506082732-3e1791862d55
+replace github.com/libp2p/go-mplex => github.com/vyzo/go-mplex v0.0.0-20190506084127-53d5bb35e24a
